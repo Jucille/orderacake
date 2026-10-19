@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" href="IMAGES/logo.jpg" type="image/x-icon"/>
+    <title>The Flourishing Bakery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lucida Sans', Arial, sans-serif;
+            color: #6a3a2b;
+            background: linear-gradient(to bottom, #fbd1d7 0%, #fff8e7 100%);
+            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 20px;
+            text-align: center;
+            color: #6a3a2b;
+            font-family: 'Brush Script MT', cursive;
+            position: relative;
+        }
+
+        header img {
+            height: 120px;
+            width: 120px;
+        }
+
+        h1 {
+            font-size: 50px;
+            color: #b56576;
+        }
+
+        .arrow {
+            position: fixed;
+            top: 5%;
+            transform: translateY(-50%);
+            background-color: #521C14;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .arrow.left {
+            left: 5px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 20px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        fieldset {
+            background-color: #fff8e7;
+            border: none;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+            height: 160px;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #f38181;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        button:hover {
+            background-color: #f8a5a5;
+        }
+
+        footer {
+            background-color: #2b1509e5;
+            color: white;
+            text-align: center;
+            padding: 8px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .star {
+            font-size: 30px;
+            cursor: pointer;
+            color: gray;
+        }
+
+        .star.checked {
+            color: gold;
+        }
+
+        .error {
+            color: red;
+        }
+
+        @media only screen and (max-width: 600px) {
+            header h1 {
+                font-size: 32px;
+            }
+
+            .arrow {
+                padding: 5px;
+            }
+
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media only screen and (min-width: 601px) and (max-width: 1024px) {
+            header h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <header>
+            <a href="index.html">
+                <button class="arrow left">&#9664;</button>
+            </a>
+            <h1>The Flourishing Bakery</h1>
+        </header>
+
+        <div class="grid-container">
+            <fieldset>
+                <section>
+                    <img src="IMAGES/vegan.jpg" alt="Vegan Carrot Cake">
+                    <h2>Vegan Carrot Cake</h2>
+                    <div style="padding-bottom: 20px;">₱ 599.00</div>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#paymentModal">Buy Now</button>
+                </section>
+            </fieldset>
+            <fieldset>
+                <section>
+                    <img src="IMAGES/caramel.jpg" alt="Caramel Drip Cake">
+                    <h2>Caramel Drip Cake</h2>
+                    <div style="padding-bottom: 20px;">₱ 699.00</div>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#paymentModal">Buy Now</button>
+                </section>
+            </fieldset>
+            <fieldset>
+                <section>
+                    <img src="IMAGES/darkc.jpg" alt="Dark Chocolate Cake">
+                    <h2>Dark Choco Cake</h2>
+                    <div style="padding-bottom: 20px;">₱ 550.00</div>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#paymentModal">Buy Now</button>
+                </section>
+            </fieldset>
+            <fieldset>
+                <section>
+                    <img src="IMAGES/strawberry.jpg" alt="Strawberry Cake">
+                    <h2>Strawberry Cake</h2>
+                    <div style="padding-bottom: 20px;">₱ 700.00</div>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#paymentModal">Buy Now</button>
+                </section>
+            </fieldset>
+            <fieldset>
+                <section>
+                    <img src="IMAGES/red.jpg" alt="Red Velvet Cake">
+                    <h2>Red Velvet Cake</h2>
+                    <div style="padding-bottom: 20px;">₱ 899.00</div>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#paymentModal">Buy Now</button>
+                </section>
+            </fieldset>
+            <fieldset>
+                <section>
+                    <img src="IMAGES/vanilla.jpg" alt="Vanilla Cake">
+                    <h2>Vanilla Cake</h2>
+                    <div style="padding-bottom: 20px;">₱ 800.00</div>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#paymentModal">Buy Now</button>
+                </section>
+            </fieldset>
+            <fieldset>
+                <section>
+                    <img src="IMAGES/cheesecake.png" alt="Cheesecake">
+                    <h2>Cheesecake</h2>
+                    <div style="padding-bottom: 20px;">₱ 750.00</div>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#paymentModal">Buy Now</button>
+                </section>
+            </fieldset>
+            <fieldset>
+                <section>
+                    <img src="IMAGES/ube.jpg" alt="Ube Flan Cake">
+                    <h2>Flan Cake</h2>
+                    <div style="padding-bottom: 20px;">₱ 760.00</div>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#paymentModal">Buy Now</button>
+                </section>
+            </fieldset>
+            <fieldset>
+                <section>
+                    <img src="IMAGES/lem.jpg" alt="Lemonade Blueberry Cake">
+                    <h2>Lemon Cake</h2>
+                    <div style="padding-bottom: 20px;">₱ 499.00</div>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#paymentModal">Buy Now</button>
+                </section>
+            </fieldset>
+            <fieldset>
+                <section>
+                    <img src="IMAGES/bf.jpg" alt="Black Forest Cake">
+                    <h2>Forest Cake</h2>
+                    <div style="padding-bottom: 20px;">₱ 950.00</div>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#paymentModal">Buy Now</button>
+                </section>
+            </fieldset>
+        </div>
+        <footer>
+            &copy; 2024 The Flourishing Bakery All rights reserved.
+        </footer>
+        <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="paymentModalLabel">Payment</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="myForm">
+                            <div class="mb-3">
+                                <label for="recipientName" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="recipientName" placeholder="Enter your name"
+                                    required>
+                                <span class="error" id="nameError"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipientEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="recipientEmail"
+                                    placeholder="Enter your email" required>
+                                <span class="error" id="emailError"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipientAddress" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="recipientAddress"
+                                    placeholder="Enter your address" required>
+                                <span class="error" id="addressError"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipientPayment" class="form-label">Payment Method</label>
+                                <select class="form-select" id="recipientPayment" required>
+                                    <option value="" disabled selected>Select payment method</option>
+                                    <option value="gcash">GCash</option>
+                                    <option value="credit_card">Credit Card</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="recipientcon" class="form-label">Number</label>
+                                <input type="contact" class="form-control" id="recipientcon"
+                                    placeholder="Enter your number" required>
+                                <span class="error" id="conError"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="recipientQuantity" class="form-label">Quantity</label>
+                                <input type="number" class="form-control" id="recipientQuantity" min="1" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="starRating" class="form-label">Rate your experience:</label>
+                                <div id="starRating">
+                                    <span class="star" data-value="1">&#9733;</span>
+                                    <span class="star" data-value="2">&#9733;</span>
+                                    <span class="star" data-value="3">&#9733;</span>
+                                    <span class="star" data-value="4">&#9733;</span>
+                                    <span class="star" data-value="5">&#9733;</span>
+                                </div>
+                                <input type="hidden" id="ratingValue" name="rating">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="submitRating">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+    <script>
+        const stars = document.querySelectorAll('.star');
+        const ratingValue = document.getElementById('ratingValue');
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                let rating = star.getAttribute('data-value');
+                ratingValue.value = rating;
+
+                stars.forEach(s => {
+                    s.classList.remove('checked');
+                });
+                for (let i = 0; i < rating; i++) {
+                    stars[i].classList.add('checked');
+                }
+            });
+        });
+
+        document.getElementById('submitRating').addEventListener('click', () => {
+            let valid = true;
+
+            document.getElementById('nameError').innerText = '';
+            document.getElementById('emailError').innerText = '';
+            document.getElementById('addressError').innerText = '';
+
+            const name = document.getElementById('recipientName').value;
+            if (!name) {
+                document.getElementById('nameError').innerText = 'Please fill up this form!';
+                valid = false;
+            }
+
+            const email = document.getElementById('recipientEmail').value;
+            if (!email) {
+                document.getElementById('emailError').innerText = 'Please fill up this form!';
+                valid = false;
+            }
+
+            const address = document.getElementById('recipientAddress').value;
+            if (!address) {
+                document.getElementById('addressError').innerText = 'Please fill up this form!';
+                valid = false;
+            }
+
+            const contact = document.getElementById('recipientcon').value;
+            if (!contact) {
+                document.getElementById('conError').innerText = 'Please fill up this form!';
+                valid = false;
+            }
+
+            if (valid) {
+                alert('Order Successfully!');
+
+                const modalElement = bootstrap.Modal.getInstance(document.getElementById('paymentModal'));
+                modalElement.hide();
+
+                document.getElementById('myForm').reset();
+            }
+        });
+
+    </script>
+</body>
+
+</html>

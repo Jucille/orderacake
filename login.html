@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="IMAGES/logo.jpg" type="image/x-icon" />
+  <link rel="stylesheet" href="CSS/style.css">
+  <title>The Flourishing Bakery Login and Registration Form</title>
+  <style>
+    .error-message {
+      color: red;
+    }
+    body {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	font-family: 'Jost', sans-serif;
+	background-image: url("IMAGES/meow.jpg");
+	background-size: 33%;
+	background-position: center;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <div class="main">
+
+    <input type="checkbox" id="chk" aria-hidden="true">
+
+    <div class="signup">
+      <form id="signup-form" onsubmit="signup(event)">
+        <label for="chk" aria-hidden="true">Sign up</label>
+        <input type="text" id="signup-username" placeholder="User name" required="">
+        <input type="email" id="signup-email" placeholder="Email" required="">
+        <input type="password" id="signup-password" placeholder="Password" required="">
+        <button type="submit">Sign up</button>
+      </form>
+    </div>
+
+    <div class="login">
+      <form id="login-form" onsubmit="login(event)">
+        <label for="chk" aria-hidden="true">Login</label>
+        <input type="email" id="login-email" placeholder="Email" required="">
+        <input type="password" id="login-password" placeholder="Password" required="">
+        <span id="login-error" class="error-message"></span>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function getUserData() {
+      var users = localStorage.getItem('users');
+      return users ? JSON.parse(users) : [];
+    }
+
+    function saveUserData(users) {
+      localStorage.setItem('users', JSON.stringify(users));
+    }
+
+    function signup(event) {
+      event.preventDefault(); 
+
+      var username = document.getElementById('signup-username').value;
+      var email = document.getElementById('signup-email').value;
+      var password = document.getElementById('signup-password').value;
+
+      var users = getUserData();
+
+      var existingUser = users.find(function (user) {
+        return user.username === username || user.email === email;
+      });
+
+      if (existingUser) {
+        alert('Username or email already exists. Please choose another.');
+        return;
+      }
+
+      users.push({ username: username, email: email, password: password });
+
+      saveUserData(users);
+
+      document.getElementById('signup-form').reset();
+    }
+
+    function login(event) {
+      event.preventDefault(); 
+
+      var email = document.getElementById('login-email').value;
+      var password = document.getElementById('login-password').value;
+      var loginError = document.getElementById('login-error');
+
+      var users = getUserData();
+
+      var user = users.find(function (user) {
+        return user.email === email && user.password === password;
+      });
+
+      if (user) {
+        window.location.href = "index.html";
+        loginError.innerText = ''; 
+      } else {
+        loginError.innerText = 'Invalid username or password. Please try again.';
+      }
+    }
+  </script>
+</body>
+
+</html>

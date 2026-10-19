@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="IMAGES/logo.jpg" type="image/x-icon" />
+    <title>The Flourishing Bakery</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: linear-gradient(to bottom, #f098a4 0%, #fdcbd3 100%);
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+
+        body::before {
+            content: " ";
+            position: fixed;
+            top: 100%;
+            left: 50%;
+            width: 30vw;
+            height: 30vw;
+            background-image: url("IMAGES/pogi.png");
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            border-radius: 50%;
+            animation: meon 50s infinite linear;
+            transform: translate(-50%, -50%);
+            filter: drop-shadow(0 0 20px rgb(179, 150, 123)) drop-shadow(0 0 30px rgb(233, 227, 222));
+        }
+
+        @keyframes meon {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        body img {
+            border-radius: 45%;
+        }
+
+        header {
+            padding: 20px;
+            font-family: 'Lucida Sans';
+            text-align: center;
+            color: rgb(165, 90, 90);
+            box-shadow: 0 4px 8px rgba(95, 11, 173, 0.1);
+            background-image: url("IMAGES/logo.jpg");
+            background-size: 7cm;
+            animation: bike 10s linear infinite;
+        }
+
+        @keyframes bike {
+            0% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        header img {
+            height: 120px;
+            width: 120px;
+        }
+
+        .gwapoko {
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-size: 50px;
+            text-shadow: 0px 0px 3px rgb(88, 57, 57),
+                5px 5px 0px #07212c;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            border-radius: 5px;
+            text-align: center;
+            margin-left: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #6a3a2b;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 0 10px;
+            padding: 10px 15px;
+            background-color: #FFD1DC;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-align: center;
+        }
+
+        nav a:hover {
+            background-color: #F5A9B8;
+            color: #fff;
+        }
+
+        .ah {
+            position: relative;
+            width: 70%;
+            height: 250px;
+            overflow: hidden;
+            margin: 0 auto;
+            filter: drop-shadow(0 0 20px rgb(211, 168, 128));
+            box-shadow: 0px 2px #07212c;
+        }
+
+        .ah video {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            object-fit: none;
+        }
+
+        .products-container {
+            position: relative;
+            max-width: 100%;
+            margin: 20px auto;
+            overflow: hidden;
+            background-color: rgba(214, 194, 194, 0.479);
+            line-height: 40px;
+            padding-bottom: 20px;
+            border-radius: 5%;
+        }
+
+        .products {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+
+        .product {
+            text-align: center;
+            min-width: 250px;
+            margin: 0 10px;
+        }
+
+        .products .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .product:hover img {
+            transform: scale(1);
+        }
+
+        .product h3 {
+            margin: 0;
+            color: #3d2315;
+            text-shadow: 0px 0px 5px #db76b5;
+        }
+
+        .order-btn {
+            background-color: #d32f2f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width: 80px;
+            line-height: 13px;
+            border-radius: 10%;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cake-description-container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: rgba(214, 194, 194, 0.555);
+        }
+
+        .cake-description {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: rgba(121, 73, 48, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .cake-description img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin-right: 20px;
+            border-radius: 10px;
+        }
+
+        .description-text {
+            max-width: 60%;
+        }
+
+        .description-text h3 {
+            margin: 0;
+            color: #3d2315;
+            font-family: Cambria;
+            font-size: 40px;
+            text-shadow: 5px 0px 5px #a8b6bd;
+        }
+
+        .description-text p {
+            margin-top: 5px;
+            color: rgb(19, 4, 4);
+            font-family: sans-serif;
+            text-shadow: 0px 0px 5px #db76b5;
+            font-size: 20px;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #521C14;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .arrow.left {
+            left: 10px;
+        }
+
+        .arrow.right {
+            right: 10px;
+        }
+
+        .up-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #521C14;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 35px;
+            cursor: pointer;
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #2b1509;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+
+        @media only screen and (max-width: 600px) {
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            .ah {
+                height: 200px;
+            }
+
+            .products-container {
+                padding-bottom: 10px;
+            }
+
+            .product img {
+                height: 150px;
+            }
+
+            .order-btn {
+                width: 70px;
+                padding: 5px 10px;
+                font-size: 14px;
+            }
+
+            .cake-description-container {
+                max-width: 95%;
+                padding: 5px;
+            }
+
+            .cake-description {
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 15px;
+            }
+
+            .cake-description img {
+                width: 100%;
+                height: auto;
+                margin-bottom: 10px;
+                border-radius: 10px;
+            }
+
+            .description-text {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .description-text h3 {
+                font-size: 24px;
+            }
+
+            .description-text p {
+                font-size: 16px;
+            }
+
+            .arrow {
+                padding: 5px;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media only screen and (min-width: 601px) and (max-width: 1024px) {
+
+            header h1 {
+                font-size: 40px;
+            }
+
+            .ah {
+                height: 250px;
+            }
+
+            .product img {
+                height: 180px;
+            }
+
+            .order-btn {
+                width: 75px;
+                padding: 8px 15px;
+                font-size: 15px;
+            }
+
+            .cake-description-container {
+                max-width: 90%;
+                padding: 10px;
+            }
+
+            .cake-description {
+                flex-direction: row;
+                align-items: flex-start;
+                margin-bottom: 20px;
+            }
+
+            .cake-description img {
+                width: 150px;
+                height: 150px;
+                margin-right: 15px;
+            }
+
+            .description-text h3 {
+                font-size: 32px;
+            }
+
+            .description-text p {
+                font-size: 18px;
+            }
+
+            .arrow {
+                padding: 8px;
+            }
+        }
+
+        @media only screen and (min-width: 1025px) {
+
+            header h1 {
+                font-size: 50px;
+            }
+
+            .ah {
+                height: 350px;
+            }
+
+            .products-container {
+                padding-bottom: 20px;
+            }
+
+            .product img {
+                height: 200px;
+            }
+
+            .order-btn {
+                width: 80px;
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+
+
+            .arrow {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="index.html">
+            <img src="IMAGES/logo.jpg" alt="Logo" class="gwapoko" style="float: left;">
+        </a>
+        <h1>The Flourishing Bakery</h1>
+        <nav>
+            <a href="index.html">Home &nbsp;</a>
+            <a href="menu.html">Menu &nbsp;</a>
+            <a href="aboutus.html">About Us &nbsp;</a>
+        </nav>
+    </header>
+    <main>
+        <div class="ah">
+            <video controls loop>
+                <source src="VIDEOS/video.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="products-container">
+            <button class="arrow left" onclick="prev()">&#9664;</button>
+            <button class="arrow right" onclick="next()">&#9654;</button>
+            <div class="products" id="products">
+                <div class="product">
+                    <img src="IMAGES/vegan.jpg" alt="Vegan Carrot Cake">
+                    <h3>Vegan Carrot Cake</h3>
+                </div>
+                <div class="product">
+                    <img src="IMAGES/caramel.jpg" alt="Caramel Drip Cake">
+                    <h3>Caramel Drip Cake</h3>
+                </div>
+                <div class="product">
+                    <img src="IMAGES/darkc.jpg" alt="Dark Chocolate Cake">
+                    <h3>Dark Chocolate Cake</h3>
+                </div>
+                <div class="product">
+                    <img src="IMAGES/strawberry.jpg" alt="Strawberry Cake">
+                    <h3>Strawberry Cake</h3>
+                </div>
+                <div class="product">
+                    <img src="IMAGES/red.png" alt="Red Velvet Cake With Cream Cheese Frosting Cake">
+                    <h3>Red Velvet Cake</h3>
+                </div>
+                <div class="product">
+                    <img src="IMAGES/vanilla.jpg" alt="Vanilla Cake">
+                    <h3>Vanilla Cake</h3>
+                </div>
+                <div class="product">
+                    <img src="IMAGES/cheesecake.png" alt="Cheesecake">
+                    <h3>Cheesecake</h3>
+                </div>
+                <div class="product">
+                    <img src="IMAGES/ube.jpg" alt="Ube Leche Flan Cake">
+                    <h3>Ube Leche Flan Cake</h3>
+                </div>
+                <div class="product">
+                    <img src="IMAGES/lem.jpg" alt="Lemonade Blueberry Cake">
+                    <h3>Lemonade Blueberry Cake</h3>
+                </div>
+                <div class="product">
+                    <img src="IMAGES/bf.jpg" alt="Black Forest Cake">
+                    <h3>Black Forest Cake</h3>
+                </div>
+            </div>
+        </div>
+        <div class="cake-description-container">
+            <div class="cake-description">
+                <img src="IMAGES/vegan.jpg" alt="Vegan Carrot Cake">
+                <div class="description-text">
+                    <h3>Vegan Carrot Cake</h3>
+                    <p>A delicious and moist cake made with fresh carrots, walnuts, and spices, topped with a smooth
+                        vegan cream frosting. Perfect for vegans and those seeking a healthier option.</p>
+                </div>
+            </div>
+
+            <div class="cake-description">
+                <img src="IMAGES/caramel.jpg" alt="Caramel Drip Cake">
+                <div class="description-text">
+                    <h3>Caramel Drip Cake</h3>
+                    <p>A decadent caramel cake with layers of soft sponge and a smooth caramel drip that oozes sweetness
+                        with every bite.</p>
+                </div>
+            </div>
+
+            <div class="cake-description">
+                <img src="IMAGES/darkc.jpg" alt="Dark Chocolate Cake">
+                <div class="description-text">
+                    <h3>Dark Chocolate Cake</h3>
+                    <p>Rich and indulgent dark chocolate cake, featuring layers of velvety chocolate ganache and dark
+                        chocolate shavings.</p>
+                </div>
+            </div>
+
+            <div class="cake-description">
+                <img src="IMAGES/strawberry.jpg" alt="Strawberry Cake">
+                <div class="description-text">
+                    <h3>Strawberry Cake</h3>
+                    <p>Fresh strawberry cake made with real strawberries, topped with whipped cream frosting and
+                        garnished with fresh berries.</p>
+                </div>
+            </div>
+
+            <div class="cake-description">
+                <img src="IMAGES/red.png" alt="Red Velvet Cake With Cream Cheese Frosting">
+                <div class="description-text">
+                    <h3>Red Velvet Cake With Cream Cheese Frosting</h3>
+                    <p>A classic red velvet cake with smooth cream cheese frosting, perfect for every special occasion.
+                    </p>
+                </div>
+            </div>
+
+            <div class="cake-description">
+                <img src="IMAGES/vanilla.jpg" alt="Vanilla Cake">
+                <div class="description-text">
+                    <h3>Vanilla Cake</h3>
+                    <p>A simple yet elegant vanilla cake with layers of moist sponge and rich vanilla buttercream
+                        frosting.</p>
+                </div>
+            </div>
+
+            <div class="cake-description">
+                <img src="IMAGES/cheesecake.png" alt="Cheesecake">
+                <div class="description-text">
+                    <h3>Cheesecake</h3>
+                    <p>A smooth and creamy cheesecake with a buttery graham cracker crust, perfect for any cheesecake
+                        lover.</p>
+                </div>
+            </div>
+
+            <div class="cake-description">
+                <img src="IMAGES/ube.jpg" alt="Ube Leche Flan Cake">
+                <div class="description-text">
+                    <h3>Ube Leche Flan Cake</h3>
+                    <p>A fusion of ube (purple yam) and creamy leche flan, combining the best of Filipino flavors in one
+                        delightful cake.</p>
+                </div>
+            </div>
+
+            <div class="cake-description">
+                <img src="IMAGES/lem.jpg" alt="Lemonade Blueberry Cake">
+                <div class="description-text">
+                    <h3>Lemonade Blueberry Cake</h3>
+                    <p>A refreshing lemon-flavored cake with a hint of blueberries, perfect for summer afternoons.</p>
+                </div>
+            </div>
+
+            <div class="cake-description">
+                <img src="IMAGES/bf.jpg" alt="Black Forest Cake">
+                <div class="description-text">
+                    <h3>Black Forest Cake</h3>
+                    <p>A traditional Black Forest cake layered with rich chocolate, cherries, and whipped cream, giving
+                        it a delightful sweet and tart combination.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <button class="up-button" onclick="scrollToTop()"><b>&#8686;</b></button>
+
+    </main>
+
+    <script>
+        let currentIndex = 0;
+        const products = document.getElementById('products');
+        const totalProducts = products.children.length;
+        const visibleProducts = 3; 
+
+        function next() {
+            if (currentIndex < totalProducts - visibleProducts) {
+                currentIndex++;
+                updateSliderPosition();
+            }
+        }
+
+        function prev() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateSliderPosition();
+            }
+        }
+
+        function updateSliderPosition() {
+            const productWidth = 250 + 20; 
+            products.style.transform = `translateX(-${currentIndex * productWidth}px)`;
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' 
+            });
+        }
+    </script>
+    <footer>
+        &copy; 2024 The Flourishing Bakery All rights reserved.
+    </footer>
+</body>
+
+</html>
